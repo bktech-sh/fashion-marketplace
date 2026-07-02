@@ -47,12 +47,6 @@ export default function NewSeason() {
       />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <Reveal>
-          <span className="inline-flex items-center gap-3 rounded-full glass-dark px-5 py-2 text-[10px] font-medium uppercase tracking-luxe text-white/80">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-soft" />
-            The Autumn Collection · Now Available
-          </span>
-        </Reveal>
 
         <Reveal delay={120}>
           <h2 className="mt-8 font-serif text-5xl font-light leading-[1.08] text-white md:text-7xl">

@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <p className="font-serif text-2xl font-semibold tracking-luxe-tight text-primary">
-              DAÉ&nbsp;Mode
+              DELÉ&nbsp;Mode
             </p>
             <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-secondary">
               Garments of rare distinction, made by hand in Florence since 1926.
@@ -51,7 +51,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-[11px] uppercase tracking-luxe-tight text-secondary/70">
-            © 2026 DAÉ Mode · All rights reserved
+            © 2026 DELÉ Mode · All rights reserved
           </p>
           <div className="flex items-center gap-8">
             {["Terms", "Privacy", "Cookies"].map((item) => (

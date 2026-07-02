@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "DAÉ Mode — Garments of Rare Distinction",
+  title: "DELÉ Mode — Garments of Rare Distinction",
   description:
     "A maison of high craftsmanship. Shop limited artisanal collections — tailored coats, evening gowns, and atelier couture, handmade in Florence with complimentary shipping and easy returns.",
 };

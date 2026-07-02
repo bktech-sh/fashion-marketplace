@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const LINKS = [
   { label: "New In", href: "#collections" },
-  { label: "The Maison", href: "#story" },
+  { label: "The House", href: "#story" },
   { label: "Values", href: "#values" },
   { label: "Shop", href: "#shop" },
 ];
@@ -33,7 +33,7 @@ export default function Navbar() {
           href="#top"
           className="font-serif text-xl font-semibold tracking-luxe-tight text-primary md:text-2xl"
         >
-          DAÉ&nbsp;Mode
+          DELÉ&nbsp;Mode
         </a>
 
         <ul className="hidden items-center gap-10 md:flex">
