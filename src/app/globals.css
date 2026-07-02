@@ -1,26 +1,220 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DAÉ Mode — Liquid Glass Luxury Design System
+   Style: Liquid Glass · Palette: Stone + Gold · Type: Cormorant/Montserrat
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Semantic color tokens */
+  --background: #faf9f7;
+  --foreground: #0c0a09;
+  --primary: #1c1917;
+  --on-primary: #ffffff;
+  --secondary: #44403c;
+  --accent: #a16207;
+  --accent-soft: #c8962e;
+  --muted: #e8ecf0;
+  --border: #d6d3d1;
+  --ring: #a16207;
+
+  /* Glass surfaces */
+  --glass-tint: 250 249 247;
+  --glass-tint-dark: 12 10 9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-montserrat);
+
+  --animate-shimmer: shimmer 3.5s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-liquid: liquid 12s ease-in-out infinite;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Elegant selection */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Refined scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbc4bd;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ============================================================
+   Liquid Glass utilities
+   ============================================================ */
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-cormorant), Georgia, serif;
+  }
+
+  /* Light glass panel — for cards over light imagery */
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 8px 32px -8px rgba(28, 25, 23, 0.12),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+  }
+
+  /* Dark glass panel — for use over dark backdrops */
+  .glass-dark {
+    background: rgba(20, 18, 16, 0.45);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 8px 40px -10px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Iridescent hairline for luxury framing */
+  .gold-hairline {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(161, 98, 7, 0.7),
+      rgba(200, 150, 46, 0.9),
+      rgba(161, 98, 7, 0.7),
+      transparent
+    );
+  }
+
+  .text-gold {
+    color: var(--accent);
+  }
+
+  .tracking-luxe {
+    letter-spacing: 0.32em;
+  }
+  .tracking-luxe-tight {
+    letter-spacing: 0.18em;
+  }
+
+  /* Shimmering gold text for accents */
+  .shimmer-text {
+    background: linear-gradient(
+      100deg,
+      var(--accent) 20%,
+      var(--accent-soft) 40%,
+      #f0d98a 50%,
+      var(--accent-soft) 60%,
+      var(--accent) 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: var(--animate-shimmer);
+  }
+}
+
+/* ============================================================
+   Keyframes
+   ============================================================ */
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(1.5deg);
+  }
+}
+
+/* Morphing liquid blob for glass backdrops */
+@keyframes liquid {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    border-radius: 58% 42% 33% 67% / 63% 51% 49% 37%;
+    transform: translate(3%, -4%) rotate(6deg);
+  }
+  66% {
+    border-radius: 39% 61% 57% 43% / 47% 62% 38% 53%;
+    transform: translate(-3%, 3%) rotate(-5deg);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll reveal — applied via IntersectionObserver adding .in-view */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
