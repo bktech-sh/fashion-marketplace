@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
 const LINKS = [
@@ -30,12 +31,12 @@ export default function Navbar() {
           : "my-0 border-b border-white/10 bg-transparent py-3.5 sm:py-6"
           }`}
       >
-        <a
-          href="#top"
+        <Link
+          href="/"
           className="font-serif text-lg font-semibold tracking-luxe-tight text-primary sm:text-xl md:text-2xl"
         >
           DELÉ&nbsp;Mode
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
           {LINKS.map((link) => (
@@ -51,12 +52,12 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1 sm:gap-4">
-          <a
+          <Link
             href="/catalog"
             className="hidden rounded-full bg-primary px-6 py-2.5 text-[11px] font-medium uppercase tracking-luxe-tight text-on-primary transition-all duration-300 hover:bg-accent md:inline-block"
           >
             Shop Now
-          </a>
+          </Link>
           <button
             type="button"
             onClick={openCart}
@@ -126,13 +127,13 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <a
+              <Link
                 href="/catalog"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-block rounded-full bg-primary px-6 py-3 text-xs font-medium uppercase tracking-luxe-tight text-on-primary"
               >
                 Shop Now
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
