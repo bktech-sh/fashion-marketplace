@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { formatIDR, WHATSAPP_NUMBER } from "@/data/products";
 
@@ -192,13 +193,13 @@ export default function CartDrawer() {
               Jelajahi koleksi kami dan tambahkan produk yang ingin Anda
               miliki.
             </p>
-            <a
+            <Link
               href="/catalog"
               onClick={closeCart}
               className="mt-2 inline-block min-h-11 rounded-full bg-primary px-6 py-2.5 text-[11px] font-medium uppercase tracking-luxe-tight leading-[1.65] text-on-primary transition-colors hover:bg-accent"
             >
               Belanja Katalog
-            </a>
+            </Link>
           </div>
         ) : step === "cart" ? (
           <>
@@ -305,13 +306,22 @@ export default function CartDrawer() {
               <p className="mt-1 text-[11px] font-light text-secondary">
                 Ongkos kirim dan pajak dihitung saat checkout.
               </p>
-              <button
-                type="button"
-                onClick={() => setStep("checkout")}
-                className="mt-5 min-h-11 w-full cursor-pointer rounded-full bg-primary text-[11px] font-medium uppercase tracking-luxe-tight text-on-primary transition-colors hover:bg-accent"
-              >
-                Lanjut ke Checkout
-              </button>
+              <div className="mt-5 flex flex-col gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setStep("checkout")}
+                  className="min-h-11 w-full cursor-pointer rounded-full bg-primary text-[11px] font-medium uppercase tracking-luxe-tight text-on-primary transition-colors hover:bg-accent"
+                >
+                  Lanjut ke Checkout
+                </button>
+                <Link
+                  href="/catalog"
+                  onClick={closeCart}
+                  className="flex min-h-11 w-full cursor-pointer items-center justify-center rounded-full border border-border text-[11px] font-medium uppercase tracking-luxe-tight text-primary transition-colors hover:border-accent hover:text-accent"
+                >
+                  Kembali ke Katalog
+                </Link>
+              </div>
             </div>
           </>
         ) : (

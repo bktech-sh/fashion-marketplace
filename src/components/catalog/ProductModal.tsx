@@ -40,7 +40,7 @@ export default function ProductModal({
     if (hasSizes && !selectedSize) return;
     addItem(product, selectedSize, quantity);
     setJustAdded(true);
-    window.setTimeout(() => setJustAdded(false), 1600);
+    window.setTimeout(onClose, 700);
   }
 
   return (
