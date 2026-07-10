@@ -6,15 +6,15 @@ import CatalogGrid from "@/components/catalog/CatalogGrid";
 import { PRODUCTS } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "The Catalog — DELÉ Mode",
+  title: "Katalog — DELÉ Mode",
   description:
-    "Browse the full DELÉ Mode collection — tailored coats, evening couture, and atelier pieces, handmade in Florence.",
+    "Telusuri koleksi lengkap DELÉ Mode — mantel rancangan khusus, busana malam, dan karya atelier yang dibuat tangan di Florence.",
 };
 
 const STATS = [
-  { value: `${PRODUCTS.length}`, label: "Pieces in Collection" },
-  { value: "5", label: "Categories" },
-  { value: "1926", label: "Founded in Florence" },
+  { value: `${PRODUCTS.length}`, label: "Koleksi Tersedia" },
+  { value: "5", label: "Kategori" },
+  { value: "1926", label: "Didirikan di Florence" },
 ];
 
 export default function CatalogPage() {
@@ -26,7 +26,7 @@ export default function CatalogPage() {
         <section className="relative flex h-[56vh] min-h-[460px] items-end overflow-hidden bg-primary sm:h-[46vh] md:h-[52vh]">
           <Image
             src="/catalog-1.png"
-            alt="A curated rack of DELÉ Mode garments in the Florentine atelier"
+            alt="Rangkaian busana DELÉ Mode di atelier Florence"
             fill
             priority
             sizes="100vw"
@@ -47,17 +47,17 @@ export default function CatalogPage() {
             <div className="flex items-center gap-4 text-white">
               <span className="h-px w-8 bg-white/60" />
               <span className="text-[10px] uppercase tracking-luxe">
-                The Full Collection
+                Koleksi Lengkap
               </span>
             </div>
 
             <h1 className="mt-4 max-w-2xl font-serif text-3xl font-light leading-[1.1] text-white sm:text-4xl md:text-6xl">
-              Every piece, <span className="italic">made to endure</span>
+              Setiap karya, <span className="italic">dirancang untuk abadi</span>
             </h1>
 
             <p className="mt-4 max-w-lg text-sm font-light leading-relaxed text-white/75">
-              Tailored coats, evening couture, and atelier pieces — shaped
-              by hand in Florence, released in strictly limited editions.
+              Mantel rancangan khusus, busana malam, dan karya atelier —
+              dibuat tangan di Florence dan dirilis dalam edisi terbatas.
             </p>
 
             <dl className="mt-6 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/15 pt-5 sm:mt-8 sm:gap-x-10 sm:gap-y-4 sm:pt-6">

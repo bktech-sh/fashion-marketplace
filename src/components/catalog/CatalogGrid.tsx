@@ -5,6 +5,8 @@ import ProductCard from "./ProductCard";
 import Dropdown from "@/components/Dropdown";
 import {
   CATEGORIES,
+  CATEGORY_LABELS,
+  AVAILABILITY_LABELS,
   PRODUCTS,
   formatIDR,
   type Availability,
@@ -20,10 +22,10 @@ const AVAILABILITY_OPTIONS: Availability[] = [
 type SortKey = "featured" | "price-asc" | "price-desc" | "name-asc";
 
 const SORT_LABELS: Record<SortKey, string> = {
-  featured: "Featured",
-  "price-asc": "Price: Low to High",
-  "price-desc": "Price: High to Low",
-  "name-asc": "Name: A to Z",
+  featured: "Unggulan",
+  "price-asc": "Harga: Rendah ke Tinggi",
+  "price-desc": "Harga: Tinggi ke Rendah",
+  "name-asc": "Nama: A ke Z",
 };
 
 const MIN_PRICE = 0;
@@ -96,11 +98,11 @@ export default function CatalogGrid() {
         {/* Category */}
         <div>
           <h2 className="text-[10px] uppercase tracking-luxe text-accent">
-            Category
+            Kategori
           </h2>
           <div
             role="group"
-            aria-label="Filter by category"
+            aria-label="Filter berdasarkan kategori"
             className={`mt-3 flex flex-wrap ${pillGap}`}
           >
             {(["All", ...CATEGORIES] as const).map((cat) => {
@@ -117,7 +119,7 @@ export default function CatalogGrid() {
                       : "border-border text-secondary hover:border-accent hover:text-accent"
                   }`}
                 >
-                  {cat}
+                  {cat === "All" ? "Semua" : CATEGORY_LABELS[cat]}
                 </button>
               );
             })}
@@ -127,11 +129,11 @@ export default function CatalogGrid() {
         {/* Availability */}
         <div>
           <h2 className="text-[10px] uppercase tracking-luxe text-accent">
-            Availability
+            Ketersediaan
           </h2>
           <div
             role="group"
-            aria-label="Filter by availability"
+            aria-label="Filter berdasarkan ketersediaan"
             className={`mt-3 flex flex-wrap ${pillGap}`}
           >
             {(["All", ...AVAILABILITY_OPTIONS] as const).map((a) => {
@@ -148,7 +150,7 @@ export default function CatalogGrid() {
                       : "border-border text-secondary hover:border-accent hover:text-accent"
                   }`}
                 >
-                  {a}
+                  {a === "All" ? "Semua" : AVAILABILITY_LABELS[a]}
                 </button>
               );
             })}
@@ -161,7 +163,7 @@ export default function CatalogGrid() {
             htmlFor={compact ? "price-filter-desktop" : "price-filter"}
             className="flex justify-between text-[10px] uppercase tracking-luxe text-accent"
           >
-            <span>Max Price</span>
+            <span>Harga Maksimal</span>
           </label>
           <p className="mt-2 text-[12px] font-light tabular-nums text-secondary">
             {formatIDR(maxPrice)}
@@ -195,7 +197,7 @@ export default function CatalogGrid() {
             >
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
             </svg>
-            Reset Filters
+            Atur Ulang Filter
           </button>
         )}
       </div>
@@ -224,7 +226,7 @@ export default function CatalogGrid() {
           >
             <path d="M4 7h16M8 12h8M11 17h2" strokeLinecap="round" />
           </svg>
-          Filters
+          Filter
           {hasActiveFilters && (
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           )}
@@ -234,7 +236,7 @@ export default function CatalogGrid() {
             <button
               type="button"
               onClick={resetFilters}
-              aria-label="Reset filters"
+              aria-label="Atur ulang filter"
               className="flex min-h-9 cursor-pointer items-center gap-1 rounded-full border border-accent/40 bg-accent/10 px-3 text-[11px] font-medium uppercase tracking-luxe-tight text-accent hover:border-accent hover:bg-accent hover:text-white"
             >
               <svg
@@ -248,11 +250,11 @@ export default function CatalogGrid() {
               >
                 <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
               </svg>
-              Reset
+              Atur Ulang
             </button>
           )}
           <p className="text-[11px] uppercase tracking-luxe-tight text-secondary">
-            {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
+            {filtered.length} produk
           </p>
         </div>
       </div>
@@ -267,17 +269,17 @@ export default function CatalogGrid() {
           <div
             role="dialog"
             aria-modal="true"
-            aria-label="Filters"
+            aria-label="Filter"
             className="absolute inset-x-0 bottom-0 flex max-h-[85dvh] flex-col rounded-t-3xl bg-background shadow-2xl"
           >
             <div className="flex items-center justify-between border-b border-border px-6 py-5">
               <h2 className="font-serif text-xl font-medium text-primary">
-                Filters
+                Filter
               </h2>
               <button
                 type="button"
                 onClick={() => setFiltersOpen(false)}
-                aria-label="Close filters"
+                aria-label="Tutup filter"
                 className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-full text-primary hover:text-accent"
               >
                 <svg
@@ -304,8 +306,7 @@ export default function CatalogGrid() {
                 onClick={() => setFiltersOpen(false)}
                 className="flex min-h-11 w-full cursor-pointer items-center justify-center rounded-full bg-primary text-[11px] font-medium uppercase tracking-luxe-tight text-on-primary hover:bg-accent"
               >
-                Show {filtered.length}{" "}
-                {filtered.length === 1 ? "Piece" : "Pieces"}
+                Tampilkan {filtered.length} Produk
               </button>
             </div>
           </div>
@@ -322,7 +323,7 @@ export default function CatalogGrid() {
         <div className="mb-5 hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-4">
             <p className="text-[11px] uppercase tracking-luxe-tight text-secondary">
-              {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
+              {filtered.length} produk
             </p>
             {hasActiveFilters && (
               <button
@@ -341,12 +342,12 @@ export default function CatalogGrid() {
                 >
                   <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
                 </svg>
-                Reset Filters
+                Atur Ulang Filter
               </button>
             )}
           </div>
           <Dropdown
-            label="Sort"
+            label="Urutkan"
             hideLabel
             value={sort}
             onChange={setSort}
@@ -361,7 +362,7 @@ export default function CatalogGrid() {
         {/* Sort on mobile */}
         <div className="mb-4 lg:hidden">
           <Dropdown
-            label="Sort"
+            label="Urutkan"
             hideLabel
             value={sort}
             onChange={setSort}
@@ -381,11 +382,11 @@ export default function CatalogGrid() {
         ) : (
           <div className="flex flex-col items-center gap-4 rounded-4xl border border-border/60 py-24 text-center">
             <p className="font-serif text-2xl font-light text-primary">
-              No pieces match your filters
+              Tidak ada produk yang sesuai
             </p>
             <p className="max-w-sm text-sm font-light text-secondary">
-              Try widening your price range or clearing a filter to see more
-              of the collection.
+              Coba perluas rentang harga atau hapus salah satu filter untuk
+              melihat lebih banyak koleksi.
             </p>
             <button
               type="button"
@@ -403,7 +404,7 @@ export default function CatalogGrid() {
               >
                 <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
               </svg>
-              Reset Filters
+              Atur Ulang Filter
             </button>
           </div>
         )}

@@ -15,10 +15,10 @@ export default function CartFab() {
         <button
           type="button"
           onClick={openCart}
-          className="flex min-h-14 w-full cursor-pointer items-center justify-between gap-3 rounded-2xl bg-primary px-5 py-3 text-on-primary shadow-[0_8px_30px_-6px_rgba(12,10,9,0.45)] transition-colors hover:bg-accent"
+          className="flex min-h-14 w-full cursor-pointer items-center justify-between gap-3 rounded-2xl bg-accent px-5 py-3 text-white shadow-[0_8px_30px_-6px_rgba(12,10,9,0.45)] transition-colors hover:bg-primary"
         >
           <span className="flex items-center gap-2.5">
-            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-accent px-1.5 text-[11px] font-medium text-white">
+            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-medium text-on-primary">
               {itemCount}
             </span>
             <span className="text-[11px] font-medium uppercase tracking-luxe-tight">

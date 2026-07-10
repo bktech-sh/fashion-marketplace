@@ -35,13 +35,13 @@ function ToastItem({
     <div
       role="status"
       aria-live="polite"
-      className={`flex items-start gap-3 rounded-2xl border border-border bg-background px-4 py-3.5 shadow-[0_12px_40px_-8px_rgba(12,10,9,0.25)] transition-all duration-250 ease-out ${
+      className={`flex items-start gap-3 rounded-2xl border border-primary/20 bg-accent px-4 py-3.5 shadow-[0_12px_40px_-8px_rgba(12,10,9,0.45)] transition-all duration-250 ease-out ${
         visible
           ? "translate-x-0 opacity-100"
           : "translate-x-6 opacity-0"
       }`}
     >
-      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-on-primary">
         <svg
           width="11"
           height="11"
@@ -56,9 +56,9 @@ function ToastItem({
       </span>
 
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-medium text-primary">{toast.title}</p>
+        <p className="text-sm font-medium text-white">{toast.title}</p>
         {toast.description && (
-          <p className="mt-0.5 truncate text-xs font-light text-secondary">
+          <p className="mt-0.5 truncate text-xs font-light text-white/60">
             {toast.description}
           </p>
         )}
@@ -67,8 +67,8 @@ function ToastItem({
       <button
         type="button"
         onClick={handleDismiss}
-        aria-label="Dismiss notification"
-        className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full text-secondary hover:text-accent"
+        aria-label="Tutup notifikasi"
+        className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full text-white/70 hover:text-primary"
       >
         <svg
           width="12"

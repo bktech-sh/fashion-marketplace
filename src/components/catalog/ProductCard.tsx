@@ -3,7 +3,12 @@
 import { useId, useState } from "react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import { formatIDR, type Product } from "@/data/products";
+import {
+  formatIDR,
+  CATEGORY_LABELS,
+  AVAILABILITY_LABELS,
+  type Product,
+} from "@/data/products";
 import ProductModal from "./ProductModal";
 
 const AVAILABILITY_STYLES: Record<Product["availability"], string> = {
@@ -42,7 +47,7 @@ export default function ProductCard({
       <button
         type="button"
         onClick={() => setModalOpen(true)}
-        aria-label={`View details for ${product.name}`}
+        aria-label={`Lihat detail ${product.name}`}
         className="relative block aspect-3/4 w-full cursor-pointer overflow-hidden bg-muted"
       >
         <Image
@@ -67,7 +72,7 @@ export default function ProductCard({
             <span
               className={`rounded-full glass-dark px-3 py-1 text-[8px] font-medium uppercase tracking-luxe-tight ${AVAILABILITY_STYLES[product.availability]}`}
             >
-              {product.availability}
+              {AVAILABILITY_LABELS[product.availability]}
             </span>
           )}
         </div>
@@ -75,7 +80,7 @@ export default function ProductCard({
         <div className="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100">
           <div className="flex items-center justify-between rounded-xl glass-dark px-4 py-2.5">
             <span className="text-[10px] font-medium uppercase tracking-luxe-tight text-white">
-              View the Piece
+              Lihat Detail
             </span>
             <svg
               width="14"
@@ -101,7 +106,7 @@ export default function ProductCard({
             className="min-w-0 cursor-pointer text-left"
           >
             <p className="truncate text-[9px] uppercase tracking-luxe text-accent">
-              {product.category}
+              {CATEGORY_LABELS[product.category]}
             </p>
             <h3 className="mt-1 truncate font-serif text-base font-medium text-primary hover:text-accent sm:mt-1.5 sm:text-lg">
               {product.name}
@@ -121,7 +126,7 @@ export default function ProductCard({
               aria-controls={sizesPanelId}
               className="flex min-h-7 cursor-pointer items-center gap-1 text-[9px] font-medium uppercase tracking-luxe-tight text-secondary hover:text-accent sm:min-h-9 sm:gap-1.5 sm:text-[10px]"
             >
-              {selectedSize ? `Size: ${selectedSize}` : "Select Size"}
+              {selectedSize ? `Ukuran: ${selectedSize}` : "Pilih Ukuran"}
               <svg
                 width="8"
                 height="8"
@@ -152,7 +157,7 @@ export default function ProductCard({
               <div
                 id={sizesPanelId}
                 role="group"
-                aria-label="Select size"
+                aria-label="Pilih ukuran"
                 className="mt-1.5 flex flex-wrap gap-1 sm:mt-2 sm:gap-1.5"
               >
                 {product.sizes?.map((size) => {
@@ -187,7 +192,7 @@ export default function ProductCard({
               : "bg-primary text-on-primary hover:bg-accent"
           }`}
         >
-          {justAdded ? "Added to Cart" : "Add to Cart"}
+          {justAdded ? "Berhasil Ditambahkan" : "Tambah ke Keranjang"}
         </button>
       </div>
 

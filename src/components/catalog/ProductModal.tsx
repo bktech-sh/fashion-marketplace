@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import { formatIDR, type Product } from "@/data/products";
-
-const AVAILABILITY_LABEL: Record<Product["availability"], string> = {
-  "In Stock": "In Stock",
-  "Made to Order": "Made to Order",
-  Waitlist: "Waitlist",
-};
+import {
+  formatIDR,
+  CATEGORY_LABELS,
+  AVAILABILITY_LABELS,
+  type Product,
+} from "@/data/products";
 
 export default function ProductModal({
   product,
@@ -59,7 +58,7 @@ export default function ProductModal({
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close"
+          aria-label="Tutup"
           className="absolute right-2 top-2 z-10 flex min-h-9 min-w-9 cursor-pointer items-center justify-center rounded-full glass-dark text-white sm:right-5 sm:top-5 sm:min-h-11 sm:min-w-11"
         >
           <svg
@@ -100,7 +99,7 @@ export default function ProductModal({
 
         <div className="flex min-w-0 flex-1 flex-col overflow-y-auto px-4 py-4 sm:w-1/2 sm:px-8 sm:py-8">
           <p className="text-[9px] uppercase tracking-luxe text-accent sm:text-[10px]">
-            {product.category}
+            {CATEGORY_LABELS[product.category]}
           </p>
           <h2 className="mt-1 font-serif text-lg font-medium text-primary sm:mt-2 sm:text-3xl">
             {product.name}
@@ -114,7 +113,7 @@ export default function ProductModal({
               {product.edition}
             </span>
             <span className="rounded-full border border-border px-2.5 py-0.5 text-[8px] font-medium uppercase tracking-luxe-tight text-secondary sm:px-3 sm:py-1 sm:text-[10px]">
-              {AVAILABILITY_LABEL[product.availability]}
+              {AVAILABILITY_LABELS[product.availability]}
             </span>
           </div>
 
@@ -128,11 +127,11 @@ export default function ProductModal({
           {hasSizes && (
             <div className="mt-3 sm:mt-6">
               <p className="text-[9px] uppercase tracking-luxe text-accent sm:text-[10px]">
-                Size
+                Ukuran
               </p>
               <div
                 role="group"
-                aria-label="Select size"
+                aria-label="Pilih ukuran"
                 className="mt-1.5 flex flex-wrap gap-1.5 sm:mt-3 sm:gap-2"
               >
                 {product.sizes?.map((size) => {
@@ -159,13 +158,13 @@ export default function ProductModal({
 
           <div className="mt-3 sm:mt-6">
             <p className="text-[9px] uppercase tracking-luxe text-accent sm:text-[10px]">
-              Quantity
+              Jumlah
             </p>
             <div className="mt-1.5 flex w-fit items-center gap-0.5 rounded-full border border-border sm:mt-3 sm:gap-1">
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                aria-label="Decrease quantity"
+                aria-label="Kurangi jumlah"
                 className="flex min-h-8 min-w-8 cursor-pointer items-center justify-center text-primary hover:text-accent sm:min-h-11 sm:min-w-11"
               >
                 −
@@ -176,7 +175,7 @@ export default function ProductModal({
               <button
                 type="button"
                 onClick={() => setQuantity((q) => q + 1)}
-                aria-label="Increase quantity"
+                aria-label="Tambah jumlah"
                 className="flex min-h-8 min-w-8 cursor-pointer items-center justify-center text-primary hover:text-accent sm:min-h-11 sm:min-w-11"
               >
                 +
@@ -186,7 +185,7 @@ export default function ProductModal({
 
           <div className="mt-auto pt-3 sm:pt-8">
             <p className="mb-1.5 min-h-3.5 text-[10px] text-secondary sm:mb-2 sm:min-h-4 sm:text-[11px]">
-              {hasSizes && !selectedSize ? "Select a size to continue." : ""}
+              {hasSizes && !selectedSize ? "Pilih ukuran untuk melanjutkan." : ""}
             </p>
             <button
               type="button"
@@ -198,7 +197,7 @@ export default function ProductModal({
                   : "bg-primary text-on-primary hover:bg-accent"
               }`}
             >
-              {justAdded ? "Added to Cart" : "Add to Cart"}
+              {justAdded ? "Berhasil Ditambahkan" : "Tambah ke Keranjang"}
             </button>
           </div>
         </div>

@@ -87,8 +87,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         ];
       });
       showToast({
-        title: "Added to cart",
-        description: size ? `${product.name} — Size ${size}` : product.name,
+        title: "Berhasil dimasukkan ke keranjang",
+        description: size ? `${product.name} — Ukuran ${size}` : product.name,
       });
     },
     [showToast],
