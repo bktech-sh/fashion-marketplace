@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Cormorant, Montserrat } from "next/font/google";
 import { CartProvider } from "@/context/CartContext";
+import { ToastProvider } from "@/context/ToastContext";
 import CartDrawer from "@/components/cart/CartDrawer";
 import CartFab from "@/components/cart/CartFab";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import Toaster from "@/components/Toaster";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -63,12 +65,15 @@ export default function RootLayout({
       className={`${cormorant.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <CartProvider>
-          {children}
-          <CartDrawer />
-          <CartFab />
-          <WhatsAppFab />
-        </CartProvider>
+        <ToastProvider>
+          <CartProvider>
+            {children}
+            <CartDrawer />
+            <CartFab />
+            <WhatsAppFab />
+          </CartProvider>
+          <Toaster />
+        </ToastProvider>
       </body>
     </html>
   );

@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import type { Product } from "@/data/products";
+import { useToast } from "@/context/ToastContext";
 
 export type CartLine = {
   slug: string;
@@ -44,6 +45,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     try {
@@ -85,8 +87,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         ];
       });
       setIsOpen(true);
+      showToast({
+        title: "Added to cart",
+        description: size ? `${product.name} — Size ${size}` : product.name,
+      });
     },
-    [],
+    [showToast],
   );
 
   const removeItem = useCallback((slug: string, size: string | null) => {
