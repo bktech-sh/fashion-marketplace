@@ -192,7 +192,7 @@ export default function ProductCard({
               : "bg-primary text-on-primary hover:bg-accent"
           }`}
         >
-          {justAdded ? "Berhasil Ditambahkan" : "Tambah ke Keranjang"}
+          {justAdded ? "Berhasil Ditambahkan" : "+ Keranjang"}
         </button>
       </div>
 
