@@ -84,9 +84,11 @@ function PieceCard({ piece }: { piece: Piece }) {
         />
 
         {/* Edition chip */}
-        <span className="absolute left-3 top-3 rounded-full glass-dark px-3 py-1 text-[8px] font-medium uppercase tracking-luxe-tight text-white/90">
-          {piece.edition}
-        </span>
+        {piece.edition !== "Dibuat sesuai pesanan" && (
+          <span className="absolute left-3 top-3 rounded-full glass-dark px-3 py-1 text-[8px] font-medium uppercase tracking-luxe-tight text-white/90">
+            {piece.edition}
+          </span>
+        )}
 
         {/* Hover reveal — view piece */}
         <div className="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100">

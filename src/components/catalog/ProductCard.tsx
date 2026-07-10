@@ -65,9 +65,11 @@ export default function ProductCard({
         />
 
         <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
-          <span className="rounded-full glass-dark px-3 py-1 text-[8px] font-medium uppercase tracking-luxe-tight text-white/90">
-            {product.edition}
-          </span>
+          {product.edition !== "Dibuat sesuai pesanan" && (
+            <span className="rounded-full glass-dark px-3 py-1 text-[8px] font-medium uppercase tracking-luxe-tight text-white/90">
+              {product.edition}
+            </span>
+          )}
           {product.availability !== "In Stock" && (
             <span
               className={`rounded-full glass-dark px-3 py-1 text-[8px] font-medium uppercase tracking-luxe-tight ${AVAILABILITY_STYLES[product.availability]}`}

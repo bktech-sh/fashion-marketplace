@@ -109,9 +109,11 @@ export default function ProductModal({
           </p>
 
           <div className="mt-2 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
-            <span className="rounded-full border border-border px-2.5 py-0.5 text-[8px] font-medium uppercase tracking-luxe-tight text-secondary sm:px-3 sm:py-1 sm:text-[10px]">
-              {product.edition}
-            </span>
+            {product.edition !== "Dibuat sesuai pesanan" && (
+              <span className="rounded-full border border-border px-2.5 py-0.5 text-[8px] font-medium uppercase tracking-luxe-tight text-secondary sm:px-3 sm:py-1 sm:text-[10px]">
+                {product.edition}
+              </span>
+            )}
             <span className="rounded-full border border-border px-2.5 py-0.5 text-[8px] font-medium uppercase tracking-luxe-tight text-secondary sm:px-3 sm:py-1 sm:text-[10px]">
               {AVAILABILITY_LABELS[product.availability]}
             </span>
