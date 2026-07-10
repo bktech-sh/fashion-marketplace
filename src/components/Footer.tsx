@@ -1,15 +1,32 @@
+import Link from "next/link";
+
 const COLUMNS = [
   {
     heading: "Maison",
-    links: ["The Atelier", "Craftsmanship", "Sustainability", "Careers"],
+    links: [
+      { label: "The Atelier", href: "/about" },
+      { label: "Craftsmanship", href: "/about" },
+      { label: "Sustainability", href: "#" },
+      { label: "Careers", href: "#" },
+    ],
   },
   {
     heading: "Collections",
-    links: ["Outerwear", "Evening", "Couture", "The Archive"],
+    links: [
+      { label: "Outerwear", href: "/catalog" },
+      { label: "Evening", href: "/catalog" },
+      { label: "Couture", href: "/catalog" },
+      { label: "The Archive", href: "/catalog" },
+    ],
   },
   {
     heading: "Client Care",
-    links: ["Customer Care", "Shipping & Returns", "Size Guide", "Contact"],
+    links: [
+      { label: "Customer Care", href: "#" },
+      { label: "Shipping & Returns", href: "#" },
+      { label: "Size Guide", href: "#" },
+      { label: "Contact", href: "#" },
+    ],
   },
 ];
 
@@ -35,13 +52,13 @@ export default function Footer() {
               </h3>
               <ul className="mt-5 flex flex-col gap-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="text-sm font-light text-secondary transition-colors duration-300 hover:text-primary"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

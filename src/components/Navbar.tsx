@@ -2,31 +2,56 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useCart } from "@/context/CartContext";
+import { useRouter, usePathname } from "next/navigation";
 
 const LINKS = [
   { label: "New In", href: "#collections" },
-  { label: "The House", href: "#story" },
-  { label: "Values", href: "#values" },
+  { label: "About Us", href: "/about" },
+  { label: "Values", href: "/about#values" },
   { label: "Shop", href: "/catalog" },
 ];
 
+/** Sections that only exist on the homepage — clicking these elsewhere
+ *  navigates home first, then smooth-scrolls once the section mounts. */
+const HOME_ONLY_HASHES = new Set(["#collections", "#story", "#values"]);
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const forceScrolled = pathname === "/about";
+  const [scrolled, setScrolled] = useState(forceScrolled);
   const [open, setOpen] = useState(false);
-  const { itemCount, openCart } = useCart();
 
   useEffect(() => {
+    if (forceScrolled) return;
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [forceScrolled]);
+
+  function handleNavClick(e: React.MouseEvent, href: string) {
+    if (pathname === "/" || !HOME_ONLY_HASHES.has(href)) return;
+    e.preventDefault();
+    router.push(`/${href}`);
+    const id = href.slice(1);
+    let attempts = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else if (attempts < 20) {
+        attempts += 1;
+        window.setTimeout(tryScroll, 50);
+      }
+    };
+    window.setTimeout(tryScroll, 50);
+  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 sm:px-8 md:px-10 ${scrolled
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 sm:px-8 md:px-10 ${forceScrolled || scrolled
           ? "my-2 rounded-full glass py-2 sm:my-3 sm:py-3"
           : "my-0 border-b border-white/10 bg-transparent py-3.5 sm:py-6"
           }`}
@@ -39,16 +64,22 @@ export default function Navbar() {
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
-          {LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-[11px] font-medium uppercase tracking-luxe-tight text-secondary transition-colors duration-300 hover:text-accent"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {LINKS.map((link) => {
+            const isHomeOnlyHash = HOME_ONLY_HASHES.has(link.href);
+            const href =
+              isHomeOnlyHash && pathname !== "/" ? `/${link.href}` : link.href;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-[11px] font-medium uppercase tracking-luxe-tight text-secondary transition-colors duration-300 hover:text-accent"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-1 sm:gap-4">
@@ -58,33 +89,6 @@ export default function Navbar() {
           >
             Shop Now
           </Link>
-          <button
-            type="button"
-            onClick={openCart}
-            aria-label={`Open cart${itemCount > 0 ? `, ${itemCount} items` : ""}`}
-            className="relative flex h-11 w-11 items-center justify-center rounded-full text-primary transition-colors hover:text-accent"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              aria-hidden="true"
-            >
-              <path
-                d="M6 8h12l-1.2 11.5a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8zM9 8V6a3 3 0 0 1 6 0v2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {itemCount > 0 && (
-              <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-medium text-white">
-                {itemCount}
-              </span>
-            )}
-          </button>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -115,17 +119,27 @@ export default function Navbar() {
       {open && (
         <div className="mx-6 mt-2 rounded-3xl glass px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-5">
-            {LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-medium uppercase tracking-luxe-tight text-primary transition-colors hover:text-accent"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {LINKS.map((link) => {
+              const isHomeOnlyHash = HOME_ONLY_HASHES.has(link.href);
+              const href =
+                isHomeOnlyHash && pathname !== "/"
+                  ? `/${link.href}`
+                  : link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={href}
+                    onClick={(e) => {
+                      setOpen(false);
+                      handleNavClick(e, link.href);
+                    }}
+                    className="text-sm font-medium uppercase tracking-luxe-tight text-primary transition-colors hover:text-accent"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
             <li>
               <Link
                 href="/catalog"

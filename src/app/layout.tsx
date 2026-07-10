@@ -3,6 +3,7 @@ import { Cormorant, Montserrat } from "next/font/google";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/cart/CartDrawer";
 import CartFab from "@/components/cart/CartFab";
+import WhatsAppFab from "@/components/WhatsAppFab";
 import "./globals.css";
 
 const cormorant = Cormorant({
@@ -66,6 +67,7 @@ export default function RootLayout({
           {children}
           <CartDrawer />
           <CartFab />
+          <WhatsAppFab />
         </CartProvider>
       </body>
     </html>
