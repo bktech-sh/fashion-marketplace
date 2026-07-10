@@ -86,7 +86,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           },
         ];
       });
-      setIsOpen(true);
       showToast({
         title: "Added to cart",
         description: size ? `${product.name} — Size ${size}` : product.name,
