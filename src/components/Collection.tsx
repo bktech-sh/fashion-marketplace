@@ -14,7 +14,7 @@ const PIECES: Piece[] = [
   {
     name: "Éclat Noir",
     category: "Tailored Outerwear",
-    price: "Rp 720.000.000",
+    price: "Rp 385.000",
     edition: "Edition of 12",
     image: "/catalog-1.png",
     alt: "A model wearing the Éclat Noir black tailored coat beside a rail of the collection",
@@ -22,7 +22,7 @@ const PIECES: Piece[] = [
   {
     name: "Lumière d'Or",
     category: "Evening Couture",
-    price: "Rp 489.000.000",
+    price: "Rp 349.000",
     edition: "Edition of 8",
     image: "/catalog-2.jpg",
     alt: "A model wearing the Lumière d'Or champagne-gold satin gown from the collection",
@@ -30,7 +30,7 @@ const PIECES: Piece[] = [
   {
     name: "Voile de Soie",
     category: "Atelier Couture",
-    price: "Rp 168.000.000",
+    price: "Rp 219.000",
     edition: "Made to order",
     image: "/catalog-3.jpg",
     alt: "A model draped in the Voile de Soie ivory silk-chiffon gown from the collection",
@@ -127,7 +127,7 @@ export default function Collection() {
           </Reveal>
           <Reveal delay={140}>
             <a
-              href="#shop"
+              href="/catalog"
               className="group inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-luxe-tight text-primary transition-colors hover:text-accent"
             >
               Shop all pieces

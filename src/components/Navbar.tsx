@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 const LINKS = [
   { label: "New In", href: "#collections" },
   { label: "The House", href: "#story" },
   { label: "Values", href: "#values" },
-  { label: "Shop", href: "#shop" },
+  { label: "Shop", href: "/catalog" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { itemCount, openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,15 +25,14 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
-        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 md:px-10 ${
-          scrolled
-            ? "my-3 rounded-full glass py-3"
-            : "my-0 border-b border-white/10 bg-transparent py-6"
-        }`}
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 sm:px-8 md:px-10 ${scrolled
+          ? "my-2 rounded-full glass py-2 sm:my-3 sm:py-3"
+          : "my-0 border-b border-white/10 bg-transparent py-3.5 sm:py-6"
+          }`}
       >
         <a
           href="#top"
-          className="font-serif text-xl font-semibold tracking-luxe-tight text-primary md:text-2xl"
+          className="font-serif text-lg font-semibold tracking-luxe-tight text-primary sm:text-xl md:text-2xl"
         >
           DELÉ&nbsp;Mode
         </a>
@@ -49,13 +50,40 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1 sm:gap-4">
           <a
-            href="#collections"
+            href="/catalog"
             className="hidden rounded-full bg-primary px-6 py-2.5 text-[11px] font-medium uppercase tracking-luxe-tight text-on-primary transition-all duration-300 hover:bg-accent md:inline-block"
           >
             Shop Now
           </a>
+          <button
+            type="button"
+            onClick={openCart}
+            aria-label={`Open cart${itemCount > 0 ? `, ${itemCount} items` : ""}`}
+            className="relative flex h-11 w-11 items-center justify-center rounded-full text-primary transition-colors hover:text-accent"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 8h12l-1.2 11.5a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8zM9 8V6a3 3 0 0 1 6 0v2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {itemCount > 0 && (
+              <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-medium text-white">
+                {itemCount}
+              </span>
+            )}
+          </button>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -84,7 +112,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="mx-3 mt-2 rounded-3xl glass px-6 py-6 md:hidden">
+        <div className="mx-6 mt-2 rounded-3xl glass px-6 py-6 md:hidden">
           <ul className="flex flex-col gap-5">
             {LINKS.map((link) => (
               <li key={link.href}>
@@ -99,7 +127,7 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="#collections"
+                href="/catalog"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-block rounded-full bg-primary px-6 py-3 text-xs font-medium uppercase tracking-luxe-tight text-on-primary"
               >
