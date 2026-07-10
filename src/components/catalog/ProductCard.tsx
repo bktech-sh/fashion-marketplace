@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { formatIDR, type Product } from "@/data/products";
+import ProductModal from "./ProductModal";
 
 const AVAILABILITY_STYLES: Record<Product["availability"], string> = {
   "In Stock": "text-white/90",
@@ -21,6 +22,7 @@ export default function ProductCard({
   const [sizesOpen, setSizesOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [justAdded, setJustAdded] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const sizesPanelId = useId();
   const hasSizes = !!product.sizes?.length;
   const { addItem } = useCart();
@@ -37,7 +39,12 @@ export default function ProductCard({
 
   return (
     <article className="group relative overflow-hidden rounded-3xl border border-border/60">
-      <div className="relative aspect-3/4 w-full overflow-hidden bg-muted">
+      <button
+        type="button"
+        onClick={() => setModalOpen(true)}
+        aria-label={`View details for ${product.name}`}
+        className="relative block aspect-3/4 w-full cursor-pointer overflow-hidden bg-muted"
+      >
         <Image
           src={product.image}
           alt={product.alt}
@@ -84,18 +91,22 @@ export default function ProductCard({
             </svg>
           </div>
         </div>
-      </div>
+      </button>
 
       <div className="bg-background px-3 py-3 sm:px-4 sm:py-4">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between sm:gap-2">
-          <div className="min-w-0">
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className="min-w-0 cursor-pointer text-left"
+          >
             <p className="truncate text-[9px] uppercase tracking-luxe text-accent">
               {product.category}
             </p>
-            <h3 className="mt-1 truncate font-serif text-base font-medium text-primary sm:mt-1.5 sm:text-lg">
+            <h3 className="mt-1 truncate font-serif text-base font-medium text-primary hover:text-accent sm:mt-1.5 sm:text-lg">
               {product.name}
             </h3>
-          </div>
+          </button>
           <p className="shrink-0 text-xs font-light tracking-wide text-secondary tabular-nums">
             {formatIDR(product.price)}
           </p>
@@ -179,6 +190,10 @@ export default function ProductCard({
           {justAdded ? "Added to Cart" : "Add to Cart"}
         </button>
       </div>
+
+      {modalOpen && (
+        <ProductModal product={product} onClose={() => setModalOpen(false)} />
+      )}
     </article>
   );
 }

@@ -16,6 +16,7 @@ export type Product = {
   availability: Availability;
   image: string;
   alt: string;
+  description: string;
   /** Omitted for pieces with no size variants (e.g. bags, scarves) */
   sizes?: string[];
 };
@@ -54,6 +55,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.coatBurgundy,
     alt: "A model wearing the Éclat Noir black tailored coat beside a rail of the collection",
+    description:
+      "A sculpted black wool coat, cut for a silhouette that carries itself. Hand-finished lapels and horn buttons anchor a piece built for decades, not seasons.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -65,6 +68,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.dressWhite,
     alt: "A model wearing the Lumière d'Or champagne-gold satin gown from the collection",
+    description:
+      "Liquid champagne-gold satin, bias-cut to fall with the body rather than against it. A quiet evening statement, made for candlelight.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -76,6 +81,8 @@ export const PRODUCTS: Product[] = [
     availability: "Made to Order",
     image: IMAGES.rackNeutral,
     alt: "A model draped in the Voile de Soie ivory silk-chiffon gown from the collection",
+    description:
+      "Ivory silk chiffon, layered by hand into a gown that moves like breath. Made to order in our Florence atelier, fitted to you alone.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -87,6 +94,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.streetCoatBlue,
     alt: "A model wearing the Manteau de Nuit charcoal wool coat",
+    description:
+      "Charcoal wool with a full, protective drape. A coat built for city nights — structured shoulders, a deep collar, and a lining that outlasts the trend cycle.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -98,6 +107,8 @@ export const PRODUCTS: Product[] = [
     availability: "Waitlist",
     image: IMAGES.coatPinkArchway,
     alt: "A model wearing the Robe Cristalline crystal-embroidered evening gown",
+    description:
+      "Hand-embroidered crystal work traces the neckline and hem of this evening gown. Each stone is set by a single artisan, edition capped at six.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -109,6 +120,8 @@ export const PRODUCTS: Product[] = [
     availability: "Made to Order",
     image: IMAGES.streetTrousers,
     alt: "A model wearing the Dentelle Éternelle hand-appliquéd lace gown",
+    description:
+      "Hand-appliquéd lace over a silk foundation, built up in layers by our atelier's lace masters. Made to order, no two pieces identical.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -120,6 +133,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.flatlayAccessories,
     alt: "The Ceinture Dorée hand-gilded leather belt",
+    description:
+      "Full-grain leather with a hand-gilded buckle, burnished to a soft antique gold. Ages into a patina that's entirely your own.",
     sizes: BELT_SIZES,
   },
   {
@@ -131,6 +146,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.jacketFlatlay,
     alt: "The Foulard de Soie hand-rolled silk scarf",
+    description:
+      "Pure silk twill with hand-rolled edges, printed in small batches. Light enough to fold into a pocket, substantial enough to anchor an outfit.",
   },
   {
     slug: "cape-hivernale",
@@ -141,6 +158,8 @@ export const PRODUCTS: Product[] = [
     availability: "Waitlist",
     image: IMAGES.rackOuterwear,
     alt: "A model wearing the Cape Hivernale wool and cashmere cape",
+    description:
+      "A wool and cashmere cape cut for full coverage without weight. Clean lines, an oversized collar, and a fastening built to last winters, not one.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -152,6 +171,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.dressWhite,
     alt: "A model wearing the Jupe Plissée hand-pleated silk skirt",
+    description:
+      "Hundreds of hand-set pleats in fine silk, holding their shape with every movement. A skirt that catches light the way water does.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -163,6 +184,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.streetCoatBlue,
     alt: "A model wearing the Robe de Minuit midnight-blue velvet gown",
+    description:
+      "Deep midnight-blue velvet with a fluid, floor-length cut. A gown built for one entrance and remembered long after.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -174,6 +197,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.rackNeutral,
     alt: "The Gants de Chevreau kidskin leather gloves",
+    description:
+      "Kidskin leather, cut and stitched by hand for a second-skin fit. Lined in fine wool for warmth that doesn't sacrifice dexterity.",
     sizes: GLOVE_SIZES,
   },
   {
@@ -185,6 +210,8 @@ export const PRODUCTS: Product[] = [
     availability: "Waitlist",
     image: IMAGES.coatPinkArchway,
     alt: "A model wearing the archival Veste Héritage tweed jacket",
+    description:
+      "A tweed jacket drawn from our house archive, rewoven on the original looms. A rare piece for collectors of the maison's early years.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -196,6 +223,8 @@ export const PRODUCTS: Product[] = [
     availability: "Waitlist",
     image: IMAGES.rackOuterwear,
     alt: "The archival Robe de Collection 1962 evening dress",
+    description:
+      "An exact reproduction of a house gown first shown in 1962, remade to the original pattern. Archive pieces are released individually, never reissued.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -207,6 +236,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.coatBurgundy,
     alt: "A model wearing the Manteau Léger lightweight trench",
+    description:
+      "A trench in featherweight cotton twill, cut for transitional weather. Storm flap, horn buttons, and a belt that ties or buckles.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -218,6 +249,8 @@ export const PRODUCTS: Product[] = [
     availability: "Made to Order",
     image: IMAGES.jacketFlatlay,
     alt: "A model wearing the Corset de Soie silk corset bodice",
+    description:
+      "A structured silk corset bodice, boned by hand and finished with a hidden lace closure. Made to order to your exact measurements.",
     sizes: APPAREL_SIZES,
   },
   {
@@ -229,6 +262,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.flatlayAccessories,
     alt: "The Sac Atelier hand-stitched leather bag",
+    description:
+      "A structured leather bag, hand-stitched with saddle thread and finished with brushed hardware. Sized for the day, built for years.",
   },
   {
     slug: "robe-emeraude",
@@ -239,6 +274,8 @@ export const PRODUCTS: Product[] = [
     availability: "In Stock",
     image: IMAGES.dressWhite,
     alt: "A model wearing the Robe Émeraude emerald silk gown",
+    description:
+      "Emerald silk with a fluid drape and a low, draped back. A gown built for the room to go quiet when you enter it.",
     sizes: APPAREL_SIZES,
   },
 ];
