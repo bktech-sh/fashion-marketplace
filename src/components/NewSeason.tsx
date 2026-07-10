@@ -2,8 +2,8 @@ import Reveal from "./Reveal";
 
 const PERKS = [
   {
-    label: "Complimentary Shipping",
-    detail: "On every order, worldwide",
+    label: "Gratis Ongkos Kirim",
+    detail: "Untuk setiap pesanan, ke seluruh dunia",
     icon: (
       <>
         <path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z" strokeLinejoin="round" />
@@ -13,8 +13,8 @@ const PERKS = [
     ),
   },
   {
-    label: "Easy 30-Day Returns",
-    detail: "Free returns, no questions asked",
+    label: "Retur Mudah 30 Hari",
+    detail: "Retur gratis, tanpa pertanyaan",
     icon: (
       <>
         <path d="M4 9h11a5 5 0 010 10H9" strokeLinecap="round" strokeLinejoin="round" />
@@ -23,8 +23,8 @@ const PERKS = [
     ),
   },
   {
-    label: "Secure Checkout",
-    detail: "Encrypted, trusted payments",
+    label: "Checkout Aman",
+    detail: "Pembayaran terenkripsi dan terpercaya",
     icon: (
       <>
         <rect x="5" y="10" width="14" height="10" rx="2" />
@@ -50,16 +50,17 @@ export default function NewSeason() {
 
         <Reveal delay={120}>
           <h2 className="mt-8 font-serif text-5xl font-light leading-[1.08] text-white md:text-7xl">
-            Discover the
-            <span className="italic shimmer-text"> New Season</span>
+            Temukan
+            <span className="italic shimmer-text"> Musim Terbaru</span>
           </h2>
         </Reveal>
 
         <Reveal delay={220}>
           <p className="mx-auto mt-7 max-w-xl text-base font-light leading-relaxed text-white/70">
-            Explore this season&apos;s handcrafted pieces — tailored coats,
-            evening gowns, and atelier couture, each made in limited number.
-            Shipped to your door with complimentary delivery and easy returns.
+            Jelajahi busana buatan tangan musim ini — mantel rancangan khusus,
+            gaun malam, dan couture atelier, masing-masing dibuat dalam jumlah
+            terbatas. Dikirim ke depan pintu Anda dengan pengiriman gratis dan
+            retur mudah.
           </p>
         </Reveal>
 
@@ -69,7 +70,7 @@ export default function NewSeason() {
               href="#collections"
               className="group inline-flex items-center gap-3 rounded-full bg-white px-9 py-4 text-[11px] font-medium uppercase tracking-luxe-tight text-primary transition-all duration-300 hover:bg-accent hover:text-white"
             >
-              Shop Now
+              Belanja Sekarang
               <svg
                 width="16"
                 height="16"
@@ -88,7 +89,7 @@ export default function NewSeason() {
               className="group inline-flex items-center text-[11px] font-medium uppercase tracking-luxe-tight text-white/90 transition-colors duration-300 hover:text-accent-soft"
             >
               <span className="relative">
-                Our Craftsmanship
+                Keahlian Kami
                 <span className="absolute -bottom-1.5 left-0 h-px w-full origin-left bg-white/40 transition-colors duration-500 group-hover:bg-accent-soft" />
               </span>
             </a>

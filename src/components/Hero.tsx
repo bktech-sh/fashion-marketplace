@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Full-bleed photograph */}
       <Image
         src="/hero.png"
-        alt="A curated rack of luxury women's garments in a sunlit atelier"
+        alt="Rangkaian busana mewah wanita di atelier yang cerah"
         fill
         priority
         sizes="100vw"
@@ -27,7 +27,7 @@ export default function Hero() {
             <div className="flex items-center justify-center gap-4 text-white">
               <span className="h-px w-8 bg-white/60" />
               <span className="text-[10px] uppercase tracking-luxe">
-                The Autumn Edit · Collection N°01
+                Edisi Musim Gugur · Koleksi N°01
               </span>
               <span className="h-px w-8 bg-white/60" />
             </div>
@@ -43,10 +43,10 @@ export default function Hero() {
 
           <Reveal delay={260}>
             <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-relaxed text-white/75 md:text-base">
-              An exclusive maison of high craftsmanship since 1926. Each garment
-              is shaped by hand in our Florentine atelier, released in editions
-              of no more than twelve, and reserved for those who value the
-              extraordinary over the abundant.
+              Sebuah maison eksklusif dengan keahlian tinggi sejak 1926. Setiap
+              busana dibentuk dengan tangan di atelier kami di Florence,
+              dirilis dalam edisi tak lebih dari dua belas, dan diperuntukkan
+              bagi mereka yang menghargai keistimewaan di atas kelimpahan.
             </p>
           </Reveal>
 
@@ -56,7 +56,7 @@ export default function Hero() {
                 href="#collections"
                 className="group inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-[11px] font-medium uppercase tracking-luxe-tight text-primary transition-all duration-300 hover:bg-accent hover:text-white"
               >
-                Discover the Collection
+                Jelajahi Koleksi
                 <svg
                   width="16"
                   height="16"
@@ -75,7 +75,7 @@ export default function Hero() {
                 className="group inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-luxe-tight text-white/90 transition-colors duration-300 hover:text-accent-soft"
               >
                 <span className="relative">
-                  Our Craftsmanship
+                  Keahlian Kami
                   <span className="absolute -bottom-1.5 left-0 h-px w-full origin-left bg-white/40 transition-colors duration-500 group-hover:bg-accent-soft" />
                 </span>
               </a>
@@ -85,11 +85,11 @@ export default function Hero() {
           {/* Compact trust line */}
           <Reveal delay={460}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[9px] uppercase tracking-luxe-tight text-white/55">
-              <span>Handmade in Florence</span>
+              <span>Dibuat Tangan di Florence</span>
               <span className="h-1 w-1 rounded-full bg-white/40" />
-              <span>Editions of Twelve</span>
+              <span>Edisi Dua Belas</span>
               <span className="h-1 w-1 rounded-full bg-white/40" />
-              <span>Lifetime Restoration</span>
+              <span>Restorasi Seumur Hidup</span>
             </div>
           </Reveal>
         </div>

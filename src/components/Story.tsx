@@ -23,19 +23,19 @@ export default function Story() {
                   98
                 </p>
                 <p className="mt-2 max-w-[10rem] text-[10px] uppercase tracking-luxe text-white/70">
-                  Years of unbroken craftsmanship
+                  Tahun keahlian tanpa henti
                 </p>
               </div>
             </div>
             {/* Floating detail chips */}
             <span className="absolute -right-2 top-8 animate-float rounded-2xl glass-dark px-4 py-2 text-[9px] uppercase tracking-luxe-tight text-white/85">
-              Hand-finished
+              Sentuhan Akhir Tangan
             </span>
             <span
               className="absolute -left-2 bottom-10 animate-float rounded-2xl glass-dark px-4 py-2 text-[9px] uppercase tracking-luxe-tight text-white/85"
               style={{ animationDelay: "-3s" }}
             >
-              Single artisan
+              Satu Perajin
             </span>
           </div>
         </Reveal>
@@ -44,28 +44,29 @@ export default function Story() {
         <div className="order-1 md:order-2">
           <Reveal>
             <p className="text-[10px] uppercase tracking-luxe text-accent-soft">
-              Our Story
+              Kisah Kami
             </p>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-5 font-serif text-4xl font-light leading-[1.15] text-white md:text-6xl">
-              Born of patience, in a quiet atelier in
+              Lahir dari kesabaran, di atelier yang tenang di
               <span className="italic text-accent-soft"> Florence</span>
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-7 max-w-lg text-base font-light leading-relaxed text-white/70">
-              In 1926, a single craftsman refused to make more than he could
-              perfect. That refusal became our founding principle. Today, every
-              DAÉ Mode garment still passes through one pair of hands — from raw
-              material to final stitch — never rushed, never repeated.
+              Pada 1926, seorang perajin menolak membuat lebih banyak daripada
+              yang bisa ia sempurnakan. Penolakan itu menjadi prinsip pendiri
+              kami. Kini, setiap busana DELÉ Mode masih melewati satu pasang
+              tangan — dari bahan mentah hingga jahitan akhir — tanpa terburu-
+              buru, tanpa pengulangan.
             </p>
           </Reveal>
           <Reveal delay={300}>
             <p className="mt-5 max-w-lg text-base font-light leading-relaxed text-white/70">
-              We do not scale. We deepen. What we release each season is
-              deliberately scarce, because true rarity cannot be manufactured —
-              only earned through time.
+              Kami tidak memperbesar skala. Kami memperdalam. Apa yang kami
+              rilis setiap musim sengaja dibuat langka, karena kelangkaan
+              sejati tidak bisa diproduksi — hanya bisa diraih melalui waktu.
             </p>
           </Reveal>
           <Reveal delay={400}>
@@ -75,7 +76,7 @@ export default function Story() {
               </span>
               <span className="h-px w-16 gold-hairline" />
               <span className="text-[10px] uppercase tracking-luxe-tight text-white/50">
-                Founder &amp; Maître d&apos;Art
+                Pendiri &amp; Maître d&apos;Art
               </span>
             </div>
           </Reveal>

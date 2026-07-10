@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 
 const LINKS = [
-  { label: "New In", href: "#collections" },
-  { label: "About Us", href: "/about" },
-  { label: "Values", href: "/about#values" },
-  { label: "Shop", href: "/catalog" },
+  { label: "Terbaru", href: "#collections" },
+  { label: "Tentang Kami", href: "/about" },
+  { label: "Nilai Kami", href: "/about#values" },
+  { label: "Belanja", href: "/catalog" },
 ];
 
 /** Sections that only exist on the homepage — clicking these elsewhere
@@ -87,11 +87,11 @@ export default function Navbar() {
             href="/catalog"
             className="hidden rounded-full bg-primary px-6 py-2.5 text-[11px] font-medium uppercase tracking-luxe-tight text-on-primary transition-all duration-300 hover:bg-accent md:inline-block"
           >
-            Shop Now
+            Belanja Sekarang
           </Link>
           <button
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? "Tutup menu" : "Buka menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             className="flex h-11 w-11 items-center justify-center rounded-full text-primary transition-colors hover:text-accent md:hidden"
@@ -146,7 +146,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-block rounded-full bg-primary px-6 py-3 text-xs font-medium uppercase tracking-luxe-tight text-on-primary"
               >
-                Shop Now
+                Belanja Sekarang
               </Link>
             </li>
           </ul>

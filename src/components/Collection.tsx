@@ -13,51 +13,51 @@ type Piece = {
 const PIECES: Piece[] = [
   {
     name: "Éclat Noir",
-    category: "Tailored Outerwear",
+    category: "Mantel Rancangan Khusus",
     price: "Rp 385.000",
-    edition: "Edition of 12",
+    edition: "Edisi 12",
     image: "/catalog-coat-burgundy.jpg",
-    alt: "A model wearing the Éclat Noir black tailored coat beside a rail of the collection",
+    alt: "Model mengenakan mantel hitam Éclat Noir di samping rak koleksi",
   },
   {
     name: "Lumière d'Or",
-    category: "Evening Couture",
+    category: "Couture Malam",
     price: "Rp 349.000",
-    edition: "Edition of 8",
+    edition: "Edisi 8",
     image: "/catalog-dress-white.jpg",
-    alt: "A model wearing the Lumière d'Or champagne-gold satin gown from the collection",
+    alt: "Model mengenakan gaun satin emas-sampanye Lumière d'Or dari koleksi",
   },
   {
     name: "Voile de Soie",
-    category: "Atelier Couture",
+    category: "Couture Atelier",
     price: "Rp 219.000",
-    edition: "Made to order",
+    edition: "Dibuat sesuai pesanan",
     image: "/catalog-rack-neutral.jpg",
-    alt: "A model draped in the Voile de Soie ivory silk-chiffon gown from the collection",
+    alt: "Model berbalut gaun sifon sutra gading Voile de Soie dari koleksi",
   },
   {
     name: "Manteau de Nuit",
-    category: "Tailored Outerwear",
+    category: "Mantel Rancangan Khusus",
     price: "Rp 375.000",
-    edition: "Edition of 15",
+    edition: "Edisi 15",
     image: "/catalog-street-coat-blue.jpg",
-    alt: "A model wearing the Manteau de Nuit charcoal wool coat",
+    alt: "Model mengenakan mantel wol arang Manteau de Nuit",
   },
   {
     name: "Robe Cristalline",
-    category: "Evening Couture",
+    category: "Couture Malam",
     price: "Rp 359.000",
-    edition: "Edition of 6",
+    edition: "Edisi 6",
     image: "/catalog-coat-pink-archway.jpg",
-    alt: "A model wearing the Robe Cristalline crystal-embroidered evening gown",
+    alt: "Model mengenakan gaun malam bersulam kristal Robe Cristalline",
   },
   {
     name: "Cape Hivernale",
-    category: "Tailored Outerwear",
+    category: "Mantel Rancangan Khusus",
     price: "Rp 379.000",
-    edition: "Edition of 10",
+    edition: "Edisi 10",
     image: "/catalog-rack-outerwear.jpg",
-    alt: "A model wearing the Cape Hivernale wool and cashmere cape",
+    alt: "Model mengenakan cape wol dan kasmir Cape Hivernale",
   },
 ];
 
@@ -92,7 +92,7 @@ function PieceCard({ piece }: { piece: Piece }) {
         <div className="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100">
           <div className="flex items-center justify-between rounded-xl glass-dark px-4 py-2.5">
             <span className="text-[10px] font-medium uppercase tracking-luxe-tight text-white">
-              View the Piece
+              Lihat Detail
             </span>
             <svg
               width="14"
@@ -137,18 +137,18 @@ export default function Collection() {
         <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:mb-16 sm:gap-6 md:flex-row md:items-end">
           <div>
             <p className="text-[9px] uppercase tracking-luxe text-accent sm:text-[10px]">
-              The Signature Collection
+              Koleksi Andalan
             </p>
             <h2 className="mt-2 max-w-xl font-serif text-2xl font-light leading-tight text-primary sm:mt-4 sm:text-4xl md:text-6xl">
-              Garments conceived to
-              <span className="italic"> outlive trend</span>
+              Busana yang dirancang untuk
+              <span className="italic"> melampaui tren</span>
             </h2>
           </div>
           <Link
             href="/catalog"
             className="group inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-luxe-tight text-primary hover:text-accent sm:text-[11px]"
           >
-            Shop all pieces
+            Lihat semua busana
             <span className="h-px w-8 bg-accent" />
           </Link>
         </div>
@@ -164,7 +164,7 @@ export default function Collection() {
             href="/catalog"
             className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-[12px] font-medium uppercase tracking-luxe-tight text-on-primary shadow-[0_8px_30px_-8px_rgba(12,10,9,0.4)] hover:bg-accent"
           >
-            Explore the Full Catalog
+            Jelajahi Katalog Lengkap
             <svg
               width="16"
               height="16"

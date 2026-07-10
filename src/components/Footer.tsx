@@ -4,28 +4,28 @@ const COLUMNS = [
   {
     heading: "Maison",
     links: [
-      { label: "The Atelier", href: "/about" },
-      { label: "Craftsmanship", href: "/about" },
-      { label: "Sustainability", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "Atelier Kami", href: "/about" },
+      { label: "Keahlian", href: "/about" },
+      { label: "Keberlanjutan", href: "#" },
+      { label: "Karier", href: "#" },
     ],
   },
   {
-    heading: "Collections",
+    heading: "Koleksi",
     links: [
-      { label: "Outerwear", href: "/catalog" },
-      { label: "Evening", href: "/catalog" },
+      { label: "Mantel Rancangan Khusus", href: "/catalog" },
+      { label: "Malam", href: "/catalog" },
       { label: "Couture", href: "/catalog" },
-      { label: "The Archive", href: "/catalog" },
+      { label: "Arsip", href: "/catalog" },
     ],
   },
   {
-    heading: "Client Care",
+    heading: "Layanan Pelanggan",
     links: [
-      { label: "Customer Care", href: "#" },
-      { label: "Shipping & Returns", href: "#" },
-      { label: "Size Guide", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "Layanan Pelanggan", href: "#" },
+      { label: "Pengiriman & Retur", href: "#" },
+      { label: "Panduan Ukuran", href: "#" },
+      { label: "Kontak", href: "#" },
     ],
   },
 ];
@@ -40,7 +40,8 @@ export default function Footer() {
               DELÉ&nbsp;Mode
             </p>
             <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-secondary">
-              Garments of rare distinction, made by hand in Florence since 1926.
+              Busana dengan keistimewaan langka, dibuat dengan tangan di
+              Florence sejak 1926.
             </p>
             <div className="mt-6 h-px w-24 gold-hairline" />
           </div>
@@ -68,10 +69,10 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-[11px] uppercase tracking-luxe-tight text-secondary/70">
-            © 2026 DELÉ Mode · All rights reserved
+            © 2026 DELÉ Mode · Hak cipta dilindungi
           </p>
           <div className="flex items-center gap-8">
-            {["Terms", "Privacy", "Cookies"].map((item) => (
+            {["Ketentuan", "Privasi", "Cookie"].map((item) => (
               <a
                 key={item}
                 href="#"

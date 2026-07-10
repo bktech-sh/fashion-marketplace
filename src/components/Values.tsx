@@ -8,8 +8,8 @@ type Value = {
 
 const VALUES: Value[] = [
   {
-    title: "Singular Craftsmanship",
-    copy: "One artisan, one garment, from first cut to final stitch. No assembly line ever touches our work.",
+    title: "Keahlian Tunggal",
+    copy: "Satu perajin, satu busana, dari potongan pertama hingga jahitan akhir. Tak pernah ada lini produksi yang menyentuh karya kami.",
     icon: (
       <path
         d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18.1 8 12.6 4 8.8 9.5 8 12 3z"
@@ -18,8 +18,8 @@ const VALUES: Value[] = [
     ),
   },
   {
-    title: "Deliberate Scarcity",
-    copy: "Editions are capped and never reissued. Once a series closes, it belongs only to those who held it.",
+    title: "Kelangkaan yang Disengaja",
+    copy: "Edisi dibatasi dan tak pernah diterbitkan ulang. Setelah satu seri ditutup, ia hanya menjadi milik mereka yang telah memilikinya.",
     icon: (
       <>
         <circle cx="12" cy="12" r="8" />
@@ -28,8 +28,8 @@ const VALUES: Value[] = [
     ),
   },
   {
-    title: "Enduring Materials",
-    copy: "We source only what improves with age — natural silks, noble wools, and cloth cut to last generations.",
+    title: "Material yang Tahan Lama",
+    copy: "Kami hanya memilih bahan yang semakin baik seiring waktu — sutra alami, wol pilihan, dan kain yang dipotong untuk bertahan lintas generasi.",
     icon: (
       <path
         d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2zM12 2v18M4 6.5l8 4.5 8-4.5"
@@ -38,8 +38,8 @@ const VALUES: Value[] = [
     ),
   },
   {
-    title: "Discreet Service",
-    copy: "A private advisor accompanies every acquisition — attentively and confidentially, for as long as you own the piece.",
+    title: "Layanan Personal",
+    copy: "Penasihat pribadi mendampingi setiap pembelian — penuh perhatian dan rahasia, selama Anda memiliki busana tersebut.",
     icon: (
       <>
         <circle cx="12" cy="8" r="4" />
@@ -56,12 +56,12 @@ export default function Values() {
         <div className="mb-16 max-w-2xl">
           <Reveal>
             <p className="text-[10px] uppercase tracking-luxe text-accent">
-              What We Hold Sacred
+              Yang Kami Junjung Tinggi
             </p>
           </Reveal>
           <Reveal delay={120}>
             <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-primary md:text-6xl">
-              Four principles, never compromised
+              Empat prinsip, tanpa kompromi
             </h2>
           </Reveal>
         </div>
