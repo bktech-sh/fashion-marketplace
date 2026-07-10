@@ -351,7 +351,7 @@ export default function CartDrawer() {
                   onChange={(e) => handleFieldChange("name", e.target.value)}
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "checkout-name-error" : undefined}
-                  className={`mt-2 min-h-11 w-full rounded-xl border bg-background px-4 py-2.5 text-sm text-primary outline-none transition-colors focus:border-accent ${
+                  className={`mt-2 min-h-11 w-full rounded-xl border bg-background px-4 py-2.5 text-base text-primary outline-none transition-colors focus:border-accent sm:text-sm ${
                     errors.name ? "border-red-500" : "border-border"
                   }`}
                 />
@@ -378,7 +378,7 @@ export default function CartDrawer() {
                   aria-invalid={!!errors.address}
                   aria-describedby={errors.address ? "checkout-address-error" : undefined}
                   placeholder="Jalan, kota, kode pos, provinsi"
-                  className={`mt-2 w-full resize-none rounded-xl border bg-background px-4 py-2.5 text-sm text-primary outline-none transition-colors focus:border-accent ${
+                  className={`mt-2 w-full resize-none rounded-xl border bg-background px-4 py-2.5 text-base text-primary outline-none transition-colors focus:border-accent sm:text-sm ${
                     errors.address ? "border-red-500" : "border-border"
                   }`}
                 />
@@ -402,7 +402,7 @@ export default function CartDrawer() {
                   value={form.notes}
                   onChange={(e) => handleFieldChange("notes", e.target.value)}
                   placeholder="Bungkus kado, instruksi pengiriman, dll."
-                  className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-primary outline-none transition-colors focus:border-accent"
+                  className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-4 py-2.5 text-base text-primary outline-none transition-colors focus:border-accent sm:text-sm"
                 />
               </div>
             </div>
