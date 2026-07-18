@@ -6,14 +6,17 @@ import {
   CATEGORY_LABELS,
   PRODUCTS,
   formatIDR,
+  getDiscountPercent,
 } from "@/data/products";
 
 export default function ProductSplitHero() {
   const product = PRODUCTS[0];
   if (!product) return null;
 
+  const discountPercent = getDiscountPercent(product);
+
   return (
-    <section className="relative py-14 md:py-24">
+    <section className="relative py-4 md:py-14">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <Reveal className="relative aspect-4/5 overflow-hidden rounded-3xl border border-border/60 bg-muted">
@@ -24,11 +27,18 @@ export default function ProductSplitHero() {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-center"
             />
-            {product.edition !== "Dibuat sesuai pesanan" && (
-              <span className="absolute left-4 top-4 rounded-full glass-dark px-3 py-1 text-[9px] font-medium uppercase tracking-luxe-tight text-white/90">
-                {product.edition}
-              </span>
-            )}
+            <div className="absolute left-4 top-4 flex items-start gap-1.5">
+              {product.edition !== "Dibuat sesuai pesanan" && (
+                <span className="rounded-full glass-dark px-3 py-1 text-[9px] font-medium uppercase tracking-luxe-tight text-white/90">
+                  {product.edition}
+                </span>
+              )}
+              {discountPercent && (
+                <span className="rounded-full bg-red-700 px-3 py-1 text-[9px] font-semibold uppercase text-white">
+                  -{discountPercent}%
+                </span>
+              )}
+            </div>
           </Reveal>
 
           <div>
@@ -49,9 +59,16 @@ export default function ProductSplitHero() {
             </Reveal>
 
             <Reveal delay={220}>
-              <p className="mt-5 font-serif text-2xl font-light text-primary tabular-nums sm:mt-6 sm:text-3xl">
-                {formatIDR(product.price)}
-              </p>
+              <div className="mt-5 flex flex-wrap items-baseline gap-3 sm:mt-6">
+                <p className="font-serif text-2xl font-light text-primary tabular-nums sm:text-3xl">
+                  {formatIDR(product.price)}
+                </p>
+                {product.originalPrice && (
+                  <p className="text-base text-secondary/60 line-through sm:text-lg">
+                    {formatIDR(product.originalPrice)}
+                  </p>
+                )}
+              </div>
             </Reveal>
 
             {product.sizes && (

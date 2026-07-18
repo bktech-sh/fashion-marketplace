@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-dvh overflow-hidden bg-background">
+    <section id="top" className="relative min-h-[70dvh] overflow-hidden bg-background sm:min-h-dvh">
       {/* Full-bleed photograph */}
       <Image
         src="/hero.png"
@@ -17,12 +17,12 @@ export default function Hero() {
       {/* Soft gradient — only where the text sits, so the image stays clean */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,10,9,0.28)_0%,transparent_20%,transparent_38%,rgba(12,10,9,0.55)_62%,rgba(12,10,9,0.82)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,10,9,0.35)_0%,rgba(12,10,9,0.1)_22%,rgba(12,10,9,0.35)_45%,rgba(12,10,9,0.72)_68%,rgba(12,10,9,0.94)_100%)]"
       />
 
       {/* Content — calm cluster, bottom-anchored */}
       <div className="absolute inset-x-0 bottom-0 z-10">
-        <div className="mx-auto max-w-3xl px-6 pb-14 text-center md:pb-16">
+        <div className="mx-auto max-w-3xl px-6 pb-10 text-center md:pb-16">
           <Reveal delay={80}>
             <div className="flex items-center justify-center gap-4 text-white">
               <span className="h-px w-8 bg-white/60" />
@@ -42,7 +42,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={260}>
-            <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-relaxed text-white/75 md:text-base">
+            <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-relaxed text-white/90 md:text-base">
               Sebuah maison eksklusif dengan keahlian tinggi sejak 1926. Setiap
               busana dibentuk dengan tangan di atelier kami di Florence,
               dirilis dalam edisi tak lebih dari dua belas, dan diperuntukkan
@@ -84,11 +84,11 @@ export default function Hero() {
 
           {/* Compact trust line */}
           <Reveal delay={460}>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[9px] uppercase tracking-luxe-tight text-white/55">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[9px] uppercase tracking-luxe-tight text-white/80">
               <span>Dibuat Tangan di Florence</span>
-              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span className="h-1 w-1 rounded-full bg-white/50" />
               <span>Edisi Dua Belas</span>
-              <span className="h-1 w-1 rounded-full bg-white/40" />
+              <span className="h-1 w-1 rounded-full bg-white/50" />
               <span>Restorasi Seumur Hidup</span>
             </div>
           </Reveal>

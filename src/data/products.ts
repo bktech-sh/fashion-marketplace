@@ -12,6 +12,7 @@ export type Product = {
   name: string;
   category: Category;
   price: number; // IDR
+  originalPrice?: number; // IDR — set when the piece is on a limited-time discount
   edition: string;
   availability: Availability;
   image: string;
@@ -20,6 +21,15 @@ export type Product = {
   /** Omitted for pieces with no size variants (e.g. bags, scarves) */
   sizes?: string[];
 };
+
+export function getDiscountPercent(product: Product): number | null {
+  if (!product.originalPrice || product.originalPrice <= product.price) {
+    return null;
+  }
+  return Math.round(
+    ((product.originalPrice - product.price) / product.originalPrice) * 100,
+  );
+}
 
 const APPAREL_SIZES = ["XS", "S", "M", "L", "XL"];
 const BELT_SIZES = ["80cm", "85cm", "90cm", "95cm", "100cm"];
@@ -65,6 +75,7 @@ export const PRODUCTS: Product[] = [
     name: "Éclat Noir",
     category: "Outerwear",
     price: 385_000,
+    originalPrice: 460_000,
     edition: "Edisi 12",
     availability: "In Stock",
     image: IMAGES.coatBurgundy,
@@ -78,6 +89,7 @@ export const PRODUCTS: Product[] = [
     name: "Lumière d'Or",
     category: "Evening",
     price: 349_000,
+    originalPrice: 410_000,
     edition: "Edisi 8",
     availability: "In Stock",
     image: IMAGES.dressWhite,
@@ -104,6 +116,7 @@ export const PRODUCTS: Product[] = [
     name: "Manteau de Nuit",
     category: "Outerwear",
     price: 375_000,
+    originalPrice: 445_000,
     edition: "Edisi 15",
     availability: "In Stock",
     image: IMAGES.streetCoatBlue,
@@ -117,6 +130,7 @@ export const PRODUCTS: Product[] = [
     name: "Robe Cristalline",
     category: "Evening",
     price: 359_000,
+    originalPrice: 420_000,
     edition: "Edisi 6",
     availability: "Waitlist",
     image: IMAGES.coatPinkArchway,

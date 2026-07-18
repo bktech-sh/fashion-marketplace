@@ -6,6 +6,7 @@ import {
   CATEGORY_LABELS,
   PRODUCTS,
   formatIDR,
+  getDiscountPercent,
   type Product,
 } from "@/data/products";
 
@@ -16,7 +17,7 @@ export default function ProductBentoV2() {
   if (!banner || tiles.some((p) => !p)) return null;
 
   return (
-    <section className="relative py-14 md:py-24">
+    <section className="relative py-4 md:py-14">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <p className="text-[9px] uppercase tracking-luxe text-accent sm:text-[10px]">
           Edisi Musim Ini
@@ -54,6 +55,7 @@ function BentoTile({
   variant: "banner" | "square";
 }) {
   const isBanner = variant === "banner";
+  const discountPercent = getDiscountPercent(product);
 
   return (
     <Link
@@ -73,16 +75,32 @@ function BentoTile({
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,10,9,0.25)_0%,transparent_35%,transparent_55%,rgba(12,10,9,0.65)_100%)]"
       />
 
-      {isBanner && product.edition !== "Dibuat sesuai pesanan" && (
-        <span className="absolute left-3 top-3 rounded-full glass-dark px-2.5 py-1 text-[9px] font-medium uppercase tracking-luxe-tight text-white/90 sm:left-4 sm:top-4 sm:text-[10px]">
-          {product.edition}
-        </span>
+      {isBanner && (
+        <div className="absolute left-3 top-3 flex items-start gap-1.5 sm:left-4 sm:top-4">
+          {product.edition !== "Dibuat sesuai pesanan" && (
+            <span className="rounded-full glass-dark px-2.5 py-1 text-[9px] font-medium uppercase tracking-luxe-tight text-white/90 sm:text-[10px]">
+              {product.edition}
+            </span>
+          )}
+          {discountPercent && (
+            <span className="rounded-full bg-red-700 px-2.5 py-1 text-[9px] font-semibold uppercase text-white sm:text-[10px]">
+              -{discountPercent}%
+            </span>
+          )}
+        </div>
       )}
 
       {!isBanner && (
-        <span className="absolute right-1.5 top-1.5 rounded-full glass-dark px-1.5 py-0.5 text-[7px] font-medium uppercase tracking-luxe-tight text-white/90 sm:right-2 sm:top-2 sm:text-[8px]">
-          {AVAILABILITY_LABELS[product.availability]}
-        </span>
+        <div className="absolute right-1.5 top-1.5 flex flex-col items-end gap-1 sm:right-2 sm:top-2">
+          <span className="rounded-full glass-dark px-1.5 py-0.5 text-[7px] font-medium uppercase tracking-luxe-tight text-white/90 sm:text-[8px]">
+            {AVAILABILITY_LABELS[product.availability]}
+          </span>
+          {discountPercent && (
+            <span className="rounded-full bg-red-700 px-1.5 py-0.5 text-[7px] font-semibold uppercase text-white sm:text-[8px]">
+              -{discountPercent}%
+            </span>
+          )}
+        </div>
       )}
 
       <div className={isBanner ? "absolute inset-x-0 bottom-0 p-4 sm:p-6" : "absolute inset-x-0 bottom-0 p-2 sm:p-3"}>
@@ -100,15 +118,34 @@ function BentoTile({
         >
           {product.name}
         </h3>
-        <p
+        <div
           className={
             isBanner
-              ? "mt-2 text-base font-light tracking-wide text-white/90 tabular-nums sm:text-xl"
-              : "mt-0.5 text-[10px] font-light tracking-wide text-white/90 tabular-nums sm:text-xs"
+              ? "mt-2 flex flex-wrap items-baseline gap-2"
+              : "mt-0.5 flex flex-wrap items-baseline gap-1"
           }
         >
-          {formatIDR(product.price)}
-        </p>
+          <p
+            className={
+              isBanner
+                ? "text-base font-light tracking-wide text-white/90 tabular-nums sm:text-xl"
+                : "text-[10px] font-light tracking-wide text-white/90 tabular-nums sm:text-xs"
+            }
+          >
+            {formatIDR(product.price)}
+          </p>
+          {product.originalPrice && (
+            <p
+              className={
+                isBanner
+                  ? "text-sm text-white/60 line-through"
+                  : "text-[8px] text-white/60 line-through sm:text-[9px]"
+              }
+            >
+              {formatIDR(product.originalPrice)}
+            </p>
+          )}
+        </div>
       </div>
     </Link>
   );

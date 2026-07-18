@@ -9,6 +9,7 @@ import {
   CATEGORY_LABELS,
   PRODUCTS,
   formatIDR,
+  getDiscountPercent,
   type Product,
 } from "@/data/products";
 
@@ -27,7 +28,7 @@ export default function Collection() {
         </h2>
       </div>
 
-      <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 flex w-screen touch-pan-x gap-3 overflow-x-auto overflow-y-hidden px-5 pb-4 sm:mt-14 sm:gap-5 sm:px-[50px]">
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 flex w-screen touch-pan-x gap-3 overflow-x-auto overflow-y-hidden scrollbar-hide px-5 pb-4 sm:mt-14 sm:gap-5 sm:px-[50px]">
         {products.map((product, index) => (
           <Reveal
             key={product.slug}
@@ -69,6 +70,8 @@ function CollectionCard({
   product: Product;
   onQuickAdd: (product: Product, size: string | null) => void;
 }) {
+  const discountPercent = getDiscountPercent(product);
+
   return (
     <div className="group relative flex w-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-background">
       <Link
@@ -99,6 +102,11 @@ function CollectionCard({
               {AVAILABILITY_LABELS[product.availability]}
             </span>
           )}
+          {discountPercent && (
+            <span className="rounded-full bg-red-700 px-2 py-0.5 text-[7px] font-semibold uppercase text-white sm:px-3 sm:py-1 sm:text-[8px]">
+              -{discountPercent}%
+            </span>
+          )}
         </div>
 
         <div className="absolute inset-x-2 bottom-2 sm:inset-x-3 sm:bottom-3 sm:translate-y-2 sm:opacity-0 sm:transition-all sm:duration-300 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
@@ -123,9 +131,16 @@ function CollectionCard({
         <h3 className="mt-1 truncate font-serif text-sm font-medium text-primary sm:text-base">
           {product.name}
         </h3>
-        <p className="mt-1 text-[11px] font-light tracking-wide text-secondary tabular-nums sm:text-xs">
-          {formatIDR(product.price)}
-        </p>
+        <div className="mt-1 flex flex-wrap items-baseline gap-1.5">
+          <p className="text-[11px] font-light tracking-wide text-secondary tabular-nums sm:text-xs">
+            {formatIDR(product.price)}
+          </p>
+          {product.originalPrice && (
+            <p className="text-[9px] text-secondary/60 line-through sm:text-[10px]">
+              {formatIDR(product.originalPrice)}
+            </p>
+          )}
+        </div>
 
         {product.sizes && (
           <div className="mt-auto flex flex-wrap gap-1 pt-2">

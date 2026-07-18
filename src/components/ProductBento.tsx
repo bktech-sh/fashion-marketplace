@@ -6,6 +6,7 @@ import {
   CATEGORY_LABELS,
   PRODUCTS,
   formatIDR,
+  getDiscountPercent,
   type Product,
 } from "@/data/products";
 
@@ -14,7 +15,7 @@ export default function ProductBento() {
   if (!large || !small1 || !small2) return null;
 
   return (
-    <section className="relative py-14 md:py-24">
+    <section className="relative py-4 md:py-14">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <p className="text-[9px] uppercase tracking-luxe text-accent sm:text-[10px]">
           Pilihan Kurator
@@ -45,6 +46,8 @@ export default function ProductBento() {
 }
 
 function BentoTile({ product }: { product: Product }) {
+  const discountPercent = getDiscountPercent(product);
+
   return (
     <Link
       href="/catalog"
@@ -74,6 +77,11 @@ function BentoTile({ product }: { product: Product }) {
             {AVAILABILITY_LABELS[product.availability]}
           </span>
         )}
+        {discountPercent && (
+          <span className="rounded-full bg-red-700 px-2.5 py-1 text-[8px] font-semibold uppercase text-white sm:text-[9px]">
+            -{discountPercent}%
+          </span>
+        )}
       </div>
 
       <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5">
@@ -83,9 +91,16 @@ function BentoTile({ product }: { product: Product }) {
         <h3 className="mt-1 font-serif text-base font-medium text-white sm:text-2xl">
           {product.name}
         </h3>
-        <p className="mt-1 text-xs font-light tracking-wide text-white/90 tabular-nums sm:text-lg">
-          {formatIDR(product.price)}
-        </p>
+        <div className="mt-1 flex flex-wrap items-baseline gap-1.5">
+          <p className="text-xs font-light tracking-wide text-white/90 tabular-nums sm:text-lg">
+            {formatIDR(product.price)}
+          </p>
+          {product.originalPrice && (
+            <p className="text-[10px] text-white/60 line-through sm:text-sm">
+              {formatIDR(product.originalPrice)}
+            </p>
+          )}
+        </div>
       </div>
     </Link>
   );
