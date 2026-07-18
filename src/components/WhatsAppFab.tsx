@@ -3,7 +3,7 @@
 import { useCart } from "@/context/CartContext";
 import { WHATSAPP_NUMBER } from "@/data/products";
 
-const MESSAGE = "Halo DELÉ Mode, saya ingin bertanya tentang koleksi Anda.";
+const MESSAGE = "Halo Atelier N1oire, saya ingin bertanya tentang koleksi Anda.";
 
 export default function WhatsAppFab() {
   const { itemCount, isOpen } = useCart();

@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <p className="font-serif text-2xl font-semibold tracking-luxe-tight text-primary">
-              DELÉ&nbsp;Mode
+              Atelier&nbsp;Noire
             </p>
             <p className="mt-4 max-w-xs text-sm font-light leading-relaxed text-secondary">
               Busana dengan keistimewaan langka, dibuat dengan tangan di
@@ -69,7 +69,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-[11px] uppercase tracking-luxe-tight text-secondary/70">
-            © 2026 DELÉ Mode · Hak cipta dilindungi
+            © 2026 Atelier N1oire · Hak cipta dilindungi
           </p>
           <div className="flex items-center gap-8">
             {["Ketentuan", "Privasi", "Cookie"].map((item) => (

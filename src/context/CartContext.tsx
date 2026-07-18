@@ -35,7 +35,7 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = "dele-mode-cart";
+const STORAGE_KEY = "atelier-noire-cart";
 
 function lineKey(slug: string, size: string | null) {
   return `${slug}::${size ?? ""}`;

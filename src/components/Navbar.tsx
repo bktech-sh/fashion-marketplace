@@ -60,7 +60,7 @@ export default function Navbar() {
           href="/"
           className="font-serif text-lg font-semibold tracking-luxe-tight text-primary sm:text-xl md:text-2xl"
         >
-          DELÉ&nbsp;Mode
+          Atelier&nbsp;Noire
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">

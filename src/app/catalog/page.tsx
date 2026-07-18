@@ -6,9 +6,9 @@ import CatalogGrid from "@/components/catalog/CatalogGrid";
 import { PRODUCTS } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "Katalog — DELÉ Mode",
+  title: "Katalog — Atelier N1oire",
   description:
-    "Telusuri koleksi lengkap DELÉ Mode — mantel rancangan khusus, busana malam, dan karya atelier yang dibuat tangan di Florence.",
+    "Telusuri koleksi lengkap Atelier N1oire — mantel rancangan khusus, busana malam, dan karya atelier yang dibuat tangan di Florence.",
 };
 
 const STATS = [
@@ -26,7 +26,7 @@ export default function CatalogPage() {
         <section className="relative flex h-[56vh] min-h-[460px] items-end overflow-hidden bg-primary sm:h-[46vh] md:h-[52vh]">
           <Image
             src="/catalog-1.png"
-            alt="Rangkaian busana DELÉ Mode di atelier Florence"
+            alt="Rangkaian busana Atelier N1oire di atelier Florence"
             fill
             priority
             sizes="100vw"

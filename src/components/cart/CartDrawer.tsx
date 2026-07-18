@@ -87,7 +87,7 @@ export default function CartDrawer() {
       .join("\n\n");
 
     const message = [
-      `*Pesanan Baru — DELÉ Mode*`,
+      `*Pesanan Baru — Atelier N1oire*`,
       `_${orderDate}_`,
       "",
       `Halo, saya ingin memesan produk berikut:`,

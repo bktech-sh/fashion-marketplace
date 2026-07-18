@@ -57,7 +57,7 @@ export default function Story() {
             <p className="mt-7 max-w-lg text-base font-light leading-relaxed text-white/70">
               Pada 1926, seorang perajin menolak membuat lebih banyak daripada
               yang bisa ia sempurnakan. Penolakan itu menjadi prinsip pendiri
-              kami. Kini, setiap busana DELÉ Mode masih melewati satu pasang
+              kami. Kini, setiap busana Atelier N1oire masih melewati satu pasang
               tangan — dari bahan mentah hingga jahitan akhir — tanpa terburu-
               buru, tanpa pengulangan.
             </p>

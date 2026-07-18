@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "The House — DELÉ Mode",
+  title: "The House — Atelier N1oire",
   description:
-    "The story of DELÉ Mode — a maison of high craftsmanship founded in Florence in 1926, where every garment still passes through a single pair of hands.",
+    "The story of Atelier N1oire — a maison of high craftsmanship founded in Florence in 1926, where every garment still passes through a single pair of hands.",
 };
 
 const PRINCIPLES = [
@@ -58,7 +58,7 @@ export default function AboutPage() {
         <section className="relative flex h-[56vh] min-h-[460px] items-end overflow-hidden bg-primary sm:h-[62vh]">
           <Image
             src="/hero.png"
-            alt="A tailor's hands at work in the DELÉ Mode atelier in Florence"
+            alt="A tailor's hands at work in the Atelier N1oire atelier in Florence"
             fill
             priority
             sizes="100vw"
@@ -86,7 +86,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-5 max-w-lg text-sm font-light leading-relaxed text-white/75 sm:text-base">
-                Since 1926, DELÉ Mode has made one refusal its founding
+                Since 1926, Atelier N1oire has made one refusal its founding
                 principle: to never make more than can be perfected by a
                 single pair of hands.
               </p>
@@ -101,7 +101,7 @@ export default function AboutPage() {
               <div className="relative aspect-4/5 w-full overflow-hidden rounded-4xl">
                 <Image
                   src="/catalog-rack-outerwear.jpg"
-                  alt="Finished coats hanging on a rail in the DELÉ Mode atelier"
+                  alt="Finished coats hanging on a rail in the Atelier N1oire atelier"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center"
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 <p className="mt-8 text-base font-light leading-relaxed text-secondary">
                   In 1926, a single craftsman refused to make more than he
                   could perfect. That refusal became our founding principle.
-                  Today, every DELÉ Mode garment still passes through one
+                  Today, every Atelier N1oire garment still passes through one
                   pair of hands — from raw material to final stitch — never
                   rushed, never repeated.
                 </p>

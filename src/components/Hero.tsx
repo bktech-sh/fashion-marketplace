@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-[70dvh] overflow-hidden bg-background sm:min-h-dvh">
+    <section id="top" className="relative flex min-h-[70dvh] flex-col overflow-hidden bg-background sm:min-h-dvh">
       {/* Full-bleed photograph */}
       <Image
         src="/hero.png"
@@ -20,8 +20,9 @@ export default function Hero() {
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,10,9,0.35)_0%,rgba(12,10,9,0.1)_22%,rgba(12,10,9,0.35)_45%,rgba(12,10,9,0.72)_68%,rgba(12,10,9,0.94)_100%)]"
       />
 
-      {/* Content — calm cluster, bottom-anchored */}
-      <div className="absolute inset-x-0 top-20 bottom-0 z-10 flex flex-col justify-end sm:top-0">
+      {/* Content — calm cluster, bottom-anchored on tall viewports,
+          naturally flows below the fixed navbar when content needs more room */}
+      <div className="relative z-10 mt-auto pt-24 sm:pt-0">
         <div className="mx-auto max-w-3xl px-6 pb-10 text-center md:pb-16">
           <Reveal delay={80}>
             <div className="flex items-center justify-center gap-4 text-white">
