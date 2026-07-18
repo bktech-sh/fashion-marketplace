@@ -28,7 +28,7 @@ export default function Collection() {
         </h2>
       </div>
 
-      <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 flex w-screen touch-pan-x gap-3 overflow-x-auto overflow-y-hidden scrollbar-hide px-5 pb-4 sm:mt-14 sm:gap-5 sm:px-[50px]">
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 flex w-screen touch-pan-x gap-3 overflow-x-auto overflow-y-hidden scrollbar-hide-mobile px-5 pb-4 sm:mt-14 sm:gap-5 sm:px-[50px]">
         {products.map((product, index) => (
           <Reveal
             key={product.slug}
