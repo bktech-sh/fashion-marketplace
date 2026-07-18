@@ -21,7 +21,7 @@ export default function Hero() {
       />
 
       {/* Content — calm cluster, bottom-anchored */}
-      <div className="absolute inset-x-0 bottom-0 z-10">
+      <div className="absolute inset-x-0 top-20 bottom-0 z-10 flex flex-col justify-end sm:top-0">
         <div className="mx-auto max-w-3xl px-6 pb-10 text-center md:pb-16">
           <Reveal delay={80}>
             <div className="flex items-center justify-center gap-4 text-white">
